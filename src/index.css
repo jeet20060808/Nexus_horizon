@@ -3,11 +3,20 @@
 @theme {
   --color-nebula-cyan: #00f5ff;
   --color-nebula-pink: #ff007f;
-  --color-nebula-dark: #000000;
-  --color-nebula-gray: #111111;
+  --color-nebula-purple: #9d00ff;
+  --color-nebula-dark: #050505;
+  --color-nebula-gray: #1a1a1a;
   
   --font-nebula: 'Inter', system-ui, sans-serif;
   --font-display: 'Orbitron', sans-serif;
+
+  --animate-nebula-drift: nebula-drift 20s ease-in-out infinite alternate;
+}
+
+@keyframes nebula-drift {
+  0% { transform: scale(1) translate(0, 0) rotate(0deg); opacity: 0.3; }
+  50% { transform: scale(1.2) translate(5%, 5%) rotate(5deg); opacity: 0.5; }
+  100% { transform: scale(1) translate(-5%, -5%) rotate(-5deg); opacity: 0.3; }
 }
 
 @layer base {
@@ -59,4 +68,13 @@
 
 .animate-glow {
   animation: pulse-glow 3s infinite ease-in-out;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
 }
